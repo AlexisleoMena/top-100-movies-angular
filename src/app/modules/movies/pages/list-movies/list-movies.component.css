@@ -1,0 +1,41 @@
+.card {
+  cursor: pointer;
+  transition: box-shadow 0.8s;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+}
+.card:hover {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+  transition: box-shadow 0.8s;
+  transition: filter 0.8s;
+}
+.image:hover {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
+  filter: brightness(73%);
+}
+
+::ng-deep .mat-mdc-paginator, ::ng-deep .mat-mdc-paginator-container {
+  background-color: transparent !important;
+  font-size: 18px !important;
+  color: rgba(0,0,0,0.8) !important;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions {
+  background-color: rgba(0,0,0,0.8);
+  color: white !important;
+  border-radius: 30px;
+}
+
+::ng-deep .mdc-notched-outline__trailing,
+ ::ng-deep .mdc-notched-outline__leading {
+  border-color: rgba(0,0,0,0.8) !important;
+}
+
+::ng-deep .mat-mdc-select-value, 
+::ng-deep .mat-mdc-select-arrow {
+  color: rgba(0,0,0,0.8) !important;
+  font-size: 18px !important;
+}
