@@ -1,3 +1,18 @@
-span {
-  margin: 5px;
+.container {
+  display: flex;
+  min-height: 100rem;
+  flex-direction: column;
+  background-color: aqua;
 }
+.content {
+
+  flex: 1 !important;
+  /* flex-grow: 1; */
+  background-color: brown;
+}
+.title {
+  line-height: 1.2;
+  color: white;
+  max-width: 75%;
+  text-align: center;
+} 

@@ -7,6 +7,7 @@ import { MoviesLayoutComponent } from './layouts/movies-layout/movies-layout.com
 import { MaterialModule } from './material/material.module';
 import { SavedMoviesComponent } from './pages/saved-movies/saved-movies.component';
 import { HomeMoviesComponent } from './pages/home-movies/home-movies.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { HomeMoviesComponent } from './pages/home-movies/home-movies.component';
     MoviesLayoutComponent,
     SavedMoviesComponent,
     HomeMoviesComponent,
+    CarouselComponent,
   ],
   imports: [
     CommonModule,
