@@ -1,5 +1,4 @@
-/* @import 'normalize.css';
-*/
+@import 'normalize.css';
 @import '/node_modules/primeflex/primeflex.css'; 
 
 
@@ -43,6 +42,21 @@ li {
 
 .spacer {
   flex: 1 1 auto;
+}
+.scale-1-5 {
+  transform: scale(1.5);
+}
+.scale-2 {
+  transform: scale(2);
+}
+.scale-3 {
+  transform: scale(3);
+}
+.scale-4 {
+  transform: scale(4);
+}
+.scale-5 {
+  transform: scale(5);
 }
 
 ::ng-deep .mat-mdc-progress-spinner {

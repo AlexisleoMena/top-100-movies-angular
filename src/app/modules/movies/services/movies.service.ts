@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Movie } from '../interfaces/movie.interface';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,5 +13,9 @@ export class MoviesService {
   getMovies(): Observable<Movie[]> {
     return this.http.get<Movie[]>("assets/db.json");
   }
-  getMovie() {}
+  getMovie(id: string): Observable<Movie | undefined> {
+    return this.getMovies().pipe(
+      map((movies: Movie[]) => movies.find((movie: Movie) => movie.id === id))
+    );
+  }
 }

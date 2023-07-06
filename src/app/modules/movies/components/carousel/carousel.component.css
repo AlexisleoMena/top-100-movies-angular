@@ -8,7 +8,7 @@
 }
 .corousel-container img.image-active {
   display: block;
-  width: 23rem;
+  /* width: 23rem; */
 }
 
 .carousel-dot-container {

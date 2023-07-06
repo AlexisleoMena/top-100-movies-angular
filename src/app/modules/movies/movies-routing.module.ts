@@ -4,6 +4,7 @@ import { MoviesLayoutComponent } from './layouts/movies-layout/movies-layout.com
 import { ListMoviesComponent } from './pages/list-movies/list-movies.component';
 import { SavedMoviesComponent } from './pages/saved-movies/saved-movies.component';
 import { HomeMoviesComponent } from './pages/home-movies/home-movies.component';
+import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'saved',
         component: SavedMoviesComponent
+      },
+      {
+        path: 'list/:id',
+        component: MovieDetailComponent
       },
       {
         path: '**',
