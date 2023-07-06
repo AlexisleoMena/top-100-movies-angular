@@ -1,0 +1,65 @@
+<div class="flex flex-column min-h-screen">
+
+  <mat-sidenav-container class="flex-1">
+    <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '15rem' }" >
+      <mat-toolbar class="w-auto bg-black-alpha-80 text-200 p-2 pr-4 pl-4">
+        <span>Menú</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+  
+      <mat-nav-list>
+        <mat-list-item
+          *ngFor="let item of sidebarItems"
+          [routerLink]="item.url"
+          (click)="sidenav.toggle()"
+        >
+          <mat-icon matListItemIcon > {{item.icon}} </mat-icon>
+          <span class="text-base font-medium">{{item.label}}</span>
+        </mat-list-item>
+      </mat-nav-list>
+  
+    </mat-sidenav>
+  
+    <mat-toolbar class="w-auto bg-black-alpha-80 text-200 p-2 flex md:hidden" >
+      <button mat-icon-button (click)="sidenav.toggle()" class="">
+        <mat-icon class="text-3xl">menu</mat-icon>
+      </button>
+      <span class="cursor-pointer ml-auto mr-auto h-2rem" routerLink="./">
+        <img src="../../../../../assets/images/title.png" alt="" [style.height.%]="100">
+      </span>
+    </mat-toolbar>
+  
+    <mat-toolbar class="w-auto bg-black-alpha-80 text-600 p-2 hidden md:flex" >
+      <span class="z-3 ml-6 cursor-pointer h-2rem" routerLink="./">
+        <img src="../../../../../assets/images/title.png" alt="" [style.height.%]="100">
+      </span>
+      <span class="spacer"></span>
+      <div class="flex w-auto mr-6 gap-3">
+        <div  class="d-flex">
+          <button mat-button class="text-base" routerLinkActive="text-200"  [routerLinkActiveOptions]="{exact: true}" mat-button routerLink="./">Home</button>
+          <button mat-button class="text-base" routerLinkActive="text-200" mat-button routerLink="./list">Top 100</button>
+          <button mat-button class="text-base" routerLinkActive="text-200" mat-button routerLink="./saved">Saved movies</button>
+        </div>
+      </div>
+    </mat-toolbar>
+    
+    <router-outlet/>
+  
+  </mat-sidenav-container>
+
+  <mat-toolbar class="mt-auto w-auto bg-black-alpha-80 text-200 p-2 pr-4 pl-4">
+    <span class="text-xs md:text-base" >© Alexisleo 2023. All rights reserved.</span>
+    <span class="spacer"></span>
+    <span class="flex w-3rem sm:w-4rem justify-content-between">
+      <a target="_blank" rel="noopener noreferrer" href="https://github.com/AlexisleoMena">
+        <img src="../../../../../assets/images/github.png" alt="github" [style.width.%]="100" >
+      </a>
+      <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/alexis-leonardo-mena/">
+        <img src="../../../../../assets/images/linkedin.png" alt="linkedin" [style.width.%]="100" >
+      </a>
+    </span>
+  </mat-toolbar>
+</div>
