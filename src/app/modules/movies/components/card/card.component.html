@@ -2,33 +2,40 @@
   class="h-fit relative w-13rem md:w-16rem border-round-xl border-noround-top shadow-3 cursor-pointer"
 >
   <div 
-    class="absolute top-0 right-0 z-5 text-yellow-400" 
-    (click)="saveMovie()"
-    (mouseenter)="isHovered = true"
-    (mouseleave)="isHovered = false"
-  >
+  class="absolute top-0 right-0 z-5 " 
+  (click)="saveMovie()"
+  (mouseenter)="isHovered = true"
+  (mouseleave)="isHovered = false"
+>
+  <ng-container *ngIf="!isLoading; else isNotLoading">
     <ng-container *ngIf="isMovieSaved; else isNotSaved">
       <ng-container *ngIf="isHovered; else hoverd">
-        <mat-icon class="icon-3rem">bookmark_remove</mat-icon>
+        <mat-icon class="icon-3rem text-red-300">bookmark_remove</mat-icon>
       </ng-container>
       <ng-template #hoverd>
-        <mat-icon class="icon-3rem">bookmark_added</mat-icon>
+        <mat-icon class="icon-3rem text-yellow-400">bookmark_added</mat-icon>
       </ng-template>
     </ng-container>
     <ng-template #isNotSaved>
       <ng-container *ngIf="isHovered; else hoverd">
-        <mat-icon class="icon-3rem">bookmark_added</mat-icon>
+        <mat-icon class="icon-3rem text-green-300">bookmark_added</mat-icon>
       </ng-container>
       <ng-template #hoverd>
-        <mat-icon class="icon-3rem">bookmark_add</mat-icon>
+        <mat-icon class="icon-3rem text-gray-300 opacity-70">bookmark_add</mat-icon>
       </ng-template>
     </ng-template>
-  </div>
+  </ng-container>
+  <ng-template #isNotLoading>
+    <mat-progress-spinner color="primary" mode="determinate" value="50"></mat-progress-spinner>
+  </ng-template>
+  
+</div>
+
 
   <img
     [routerLink]="['/home/list', movie.id]"
     mat-card-image
-    class="image border-round-xl border-noround-bottom"
+    class="border-round-xl border-noround-bottom"
     src="{{ movie.image }}"
     alt=""
   />
