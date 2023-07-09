@@ -1,0 +1,55 @@
+<mat-card
+  class="h-fit relative w-13rem md:w-16rem border-round-xl border-noround-top shadow-3 cursor-pointer"
+>
+  <div 
+  class="absolute top-0 right-0 z-5 " 
+  (click)="saveMovie()"
+  (mouseenter)="isHovered = true"
+  (mouseleave)="isHovered = false"
+>
+  <ng-container *ngIf="!isLoading; else isNotLoading">
+    <ng-container *ngIf="isMovieSaved; else isNotSaved">
+      <ng-container *ngIf="isHovered; else hoverd">
+        <mat-icon class="icon-3rem text-red-300">bookmark_remove</mat-icon>
+      </ng-container>
+      <ng-template #hoverd>
+        <mat-icon class="icon-3rem text-yellow-400">bookmark_added</mat-icon>
+      </ng-template>
+    </ng-container>
+    <ng-template #isNotSaved>
+      <ng-container *ngIf="isHovered; else hoverd">
+        <mat-icon class="icon-3rem text-green-300">bookmark_added</mat-icon>
+      </ng-container>
+      <ng-template #hoverd>
+        <mat-icon class="icon-3rem text-gray-300 opacity-70">bookmark_add</mat-icon>
+      </ng-template>
+    </ng-template>
+  </ng-container>
+  <ng-template #isNotLoading>
+    <mat-progress-spinner color="primary" mode="determinate" value="50"></mat-progress-spinner>
+  </ng-template>
+  
+</div>
+
+
+  <img
+    [routerLink]="['/home/list', movie.id]"
+    mat-card-image
+    class="border-round-xl border-noround-bottom"
+    src="{{ movie.image }}"
+    alt=""
+  />
+  <mat-divider></mat-divider>
+  <mat-card-actions
+    [routerLink]="['/home/list', movie.id]"
+    class="flex flex-column"
+  >
+    <div class="flex align-self-start">
+      <div class="flex align-items-center">
+        <mat-icon class="text-yellow-500">star</mat-icon>
+        <h3 class="m-0 p-0">{{ movie.rating }}</h3>
+      </div>
+    </div>
+    <h3 class="text-center font-medium">{{ movie.title }}</h3>
+  </mat-card-actions>
+</mat-card>

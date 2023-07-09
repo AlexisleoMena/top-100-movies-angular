@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Movie } from '../../interfaces/movie.interface';
 import { MoviesService } from '../../services/movies.service';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SavedMoviesService } from '../../services/saved-movies.service';
 
 @Component({
   selector: 'app-list-movies',
@@ -19,7 +21,11 @@ export class ListMoviesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(
+    private moviesService: MoviesService,
+    private savedMoviesService: SavedMoviesService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.moviesService.getMovies().subscribe((movies) => {
@@ -32,6 +38,7 @@ export class ListMoviesComponent implements OnInit {
       ).sort();
       this.genres.unshift(this.selectedGenre);
     });
+    this.savedMoviesService.setComponentRef(this);
   }
 
   onPageChange(event: PageEvent) {
@@ -64,5 +71,13 @@ export class ListMoviesComponent implements OnInit {
       this.paginator.pageIndex = 0;
       this.paginator.firstPage();
     }
+  }
+  openSnackBar() {
+    this._snackBar.open(this.savedMoviesService.message, 'Close', {
+      horizontalPosition: 'start',
+      verticalPosition: 'bottom',
+      duration: 2000,
+      panelClass: 'snackbar-button',
+    });
   }
 }
