@@ -10,6 +10,7 @@ import { HomeMoviesComponent } from './pages/home-movies/home-movies.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MovieDetailComponent } from './pages/movie-detail/movie-detail.component';
 import { YoutubeComponent } from './components/youtube/youtube.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { YoutubeComponent } from './components/youtube/youtube.component';
     CarouselComponent,
     MovieDetailComponent,
     YoutubeComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
