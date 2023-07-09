@@ -1,69 +1,57 @@
 <div class="flex flex-column">
-    <mat-toolbar
-      class="w-auto flex gap-3 align-items-center bg-black-alpha-80 text-200 pl-2 md:pl-6"
+  <mat-toolbar
+    class="w-auto flex gap-3 align-items-center bg-black-alpha-80 text-200 pl-2 md:pl-6"
+  >
+    <button mat-icon-button (click)="sidenav.toggle()" class="m-0 p-0">
+      <mat-icon class="text-3xl">menu</mat-icon>
+    </button>
+    <span class="text-200 text-xl">{{
+      selectedGenre !== "All Genres" ? selectedGenre + " Genre" : selectedGenre
+    }}</span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="flex-1">
+    <mat-sidenav
+      #sidenav
+      mode="over"
+      class="h-screen"
+      [ngStyle]="{ width: '16rem' }"
+      disableClose="true"
+      autoFocus="true"
     >
-      <button mat-icon-button (click)="sidenav.toggle()" class="m-0 p-0">
-        <mat-icon class="text-3xl">menu</mat-icon>
-      </button>
-      <span class="text-200 text-xl">{{ selectedGenre !== 'All Genres' ? selectedGenre + ' Genre' : selectedGenre }}</span>
-
-    </mat-toolbar>
-
-    <mat-sidenav-container class="flex-1">
-      <mat-sidenav
-        #sidenav
-        mode="over"
-        class="h-screen"
-        [ngStyle]="{ width: '16rem' }"
-        disableClose="true"
-        autoFocus="true"
-      >
-        <mat-nav-list>
-          <mat-list-item
-            *ngFor="let genre of genres"
-            (click)="sidenav.toggle(); selectGenre(genre)"
-            [class.bg-black-alpha-80]="genre === selectedGenre"
+      <mat-nav-list>
+        <mat-list-item
+          *ngFor="let genre of genres"
+          (click)="sidenav.toggle(); selectGenre(genre)"
+          [class.bg-black-alpha-80]="genre === selectedGenre"
+        >
+          <span
+            [class.text-200]="genre === selectedGenre"
+            class="pl-6 text-sm md:text-base font-medium"
+            >{{ genre }}</span
           >
-            <span
-              [class.text-200]="genre === selectedGenre"
-              class="pl-6 text-sm md:text-base font-medium"
-              >{{ genre }}</span
-            >
-          </mat-list-item>
-        </mat-nav-list>
-      </mat-sidenav>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
 
-      <mat-sidenav-content>
-        <div class="min-h-screen flex flex-wrap p-6 gap-6 justify-content-center">
-          <mat-card
-            class="w-13rem md:w-16rem card h-fit"
-            *ngFor="let movie of currentMovies"
-            [routerLink]="['/home/list', movie.id]"
-          >
-            <img mat-card-image class="image" src="{{ movie.image }}" alt="" />
-            <mat-divider></mat-divider>
-            <mat-card-actions class="flex flex-column">
-              <div class="flex align-self-start">
-                <div class="flex align-items-center">
-                  <mat-icon class="text-yellow-500">star</mat-icon>
-                  <h3 class="m-0 p-0">{{ movie.rating }}</h3>
-                </div>
-              </div>
-              <h3 class="text-center font-medium">{{ movie.title }}</h3>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-        <div class="mb-4 mr-4 md:mr-6">
-          <mat-paginator
+    <mat-sidenav-content>
+      <div class="min-h-screen flex flex-wrap p-6 gap-6 justify-content-center">
+        <movie-card
+          *ngFor="let movie of currentMovies"
+          [movie]="movie"
+        ></movie-card>
+      </div>
+      <div class="mb-4 mr-4 md:mr-6">
+        <mat-paginator
           *ngIf="movies.length > moviesPerPage"
           [length]="movies.length"
           [pageSize]="moviesPerPage"
           [pageSizeOptions]="[8, 16, 24]"
           aria-label="Select page"
           (page)="onPageChange($event)"
-          >
+        >
         </mat-paginator>
       </div>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

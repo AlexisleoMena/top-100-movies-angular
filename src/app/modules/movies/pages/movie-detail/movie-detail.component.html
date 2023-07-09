@@ -1,7 +1,12 @@
-<div class="flex flex-column w-auto gap-6 m-4 md:m-8 justify-content-center" *ngIf="movie">
+<div
+  class="flex flex-column justify-content-center w-auto m-4 md:m-8 gap-6"
+  *ngIf="movie"
+>
   <div class="flex w-auto flex-column">
     <div class="flex w-auto justify-content-between align-items-center h-auto">
-      <h2 class="text-xl m-0 p-0 pb-2"><strong>{{ movie.rank }}. {{ movie.title }}</strong></h2>
+      <h2 class="text-xl m-0 p-0 pb-2">
+        <strong>{{ movie.rank }}. {{ movie.title }}</strong>
+      </h2>
       <mat-icon class="scale-1-5 text-yellow-500">bookmark</mat-icon>
     </div>
     <div class="flex w-auto justify-content-between">
@@ -12,14 +17,16 @@
       <h5 class="m-0 p-0">Year: {{ movie.year }}</h5>
     </div>
   </div>
-  <div class="flex w-17rem md:w-auto md:h-27rem align-self-center md:align-self-auto flex-column md:flex-row gap-6">
-      <img
+  <div
+    class="flex w-17rem md:w-auto md:h-27rem align-self-center md:align-self-auto flex-column md:flex-row gap-6"
+  >
+    <img
       mat-card-image
       class="image"
       src="{{ movie.image }}"
       alt=""
       [style.height.%]="100"
-      />
+    />
     <iframe
       id="player"
       type="text/html"
@@ -33,7 +40,9 @@
     <h3><strong>Description: </strong> {{ movie.description }}</h3>
     <h3><strong>Writers: </strong></h3>
     <ul>
-      <li *ngFor="let writer of movie.writers" class="text-base">{{ writer }}</li>
+      <li *ngFor="let writer of movie.writers" class="text-base">
+        {{ writer }}
+      </li>
     </ul>
     <h3><strong>Director: </strong> {{ movie.director }}</h3>
   </div>
@@ -42,7 +51,7 @@
     color="primary"
     [href]="'https://www.imdb.com/title/' + movie.imdbid"
     target="_blank"
-    class="w-12rem p-2 bg-yellow-500 text-black-alpha-90 font-semibold align-self-center"
+    class="align-self-center p-2 w-12rem text-black-alpha-90 bg-yellow-500 font-semibold"
     >Check on IMDb</a
   >
 </div>
