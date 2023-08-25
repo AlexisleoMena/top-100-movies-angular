@@ -1,10 +1,10 @@
-# Top 100 Movies - Aplicación Angular de las Mejores Películas
+# Top 100 Movies
 
 Esta es una Single Page Application (SPA) construida utilizando Angular 16 que brinda acceso a una selección de las 100 mejores películas según la clasificación de IMDb. Esta aplicación permite explorar, filtrar y obtener detalles completos sobre estas películas de renombre.
 
 ## Características Destacadas
 
-Aquí un vistazo visual a las funciones más destacadas que ofrece la aplicación:
+Aquí un vistazo a las funciones más destacadas que ofrece la aplicación:
 
 **Página de Inicio:**
 ![Página de Inicio](./captures/Home.jpg)
