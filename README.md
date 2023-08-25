@@ -1,27 +1,38 @@
-# App
+# Top 100 Movies - Aplicación Angular de las Mejores Películas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+Esta es una Single Page Application (SPA) construida utilizando Angular 16 que brinda acceso a una selección de las 100 mejores películas según la clasificación de IMDb. Esta aplicación permite explorar, filtrar y obtener detalles completos sobre estas películas de renombre.
 
-## Development server
+## Características Destacadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Aquí un vistazo visual a las funciones más destacadas que ofrece la aplicación:
 
-## Code scaffolding
+**Página de Inicio:**
+![Página de Inicio](./captures/Home.jpg)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Lista de Películas:**
+![Lista de Películas](./captures/List.jpg)
 
-## Build
+**Potentes Filtros:**
+![Filtros Avanzados](./captures/Filters.jpg)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Detalles de Película:**
+![Detalles de Película](./captures/Details.jpg)
 
-## Running unit tests
+**Guardar para Más Tarde:**
+![Películas Guardadas](./captures/Saved-Movies.jpg)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Cómo Iniciar la Aplicación en tu Entorno Local
 
-## Running end-to-end tests
+Si deseas explorar la aplicación en tu propio entorno, sigue estos sencillos pasos:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Instala las dependencias de la aplicación utilizando npm (Node Package Manager):
+  ```bash
+    npm install
+  ```
 
-## Further help
+2. Inicia la aplicación en modo de desarrollo:
+  ```bash
+    npm start
+  ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Abre tu navegador web y navega a http://localhost:4200 para comenzar a disfrutar de la aplicación.
